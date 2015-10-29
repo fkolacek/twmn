@@ -28,20 +28,15 @@ make
 #make install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/local/bin
-mkdir -p %{buildroot}/etc/systemd/user
 
-install twmnc %{buildroot}/usr/local/bin/twmnc
-install twmnd %{buildroot}/usr/local/bin/twmnd
+install bin/twmnc %{buildroot}/usr/local/bin/twmnc
+install bin/twmnd %{buildroot}/usr/local/bin/twmnd
 chmod 755 %{buildroot}/usr/local/bin/twmnc
 chmod 755 %{buildroot}/usr/local/bin/twmnd
-
-install scripts/twmnd.service %{buildroot}/etc/systemd/user/twmnd.service
-chmod 644 %{buildroot}/etc/systemd/user/twmnd.service
 
 %files
 /usr/local/bin/twmnc
 /usr/local/bin/twmnd
-/etc/systemd/user/twmnd.service
 
 %changelog
 * Thu Sep 29 2015 Frantisek Kolacek <fkolacek@redhat.com> 1.0-1
